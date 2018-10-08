@@ -19,7 +19,7 @@ As programmers, we give names to everything - variables, functions, classes, etc
 - Method Names
   - should be verb or verb phrases
   - accessors, mutators, and predicates should be prefixed with `get`, `set` and `is`
-  - use factory/builder method when constructor is overloaded (IntelliJ displays the properties' names but Git doesn't)
+  - use factory/builder method when constructor is overloaded (e.g. use `Book.withTitle("Clean Code")` in stead of `new Book("Clean Code")`. IntelliJ displays the properties' names but Git doesn't)
 - Don’t Be Cute (`delete()` instead of `goodBye()`)
 - Pick One Word per Concept - don't mix e.g. `fetch`, `retrieve` and `get` usually mean the same action
 - Don’t Pun - is `add` an arithmetic operation `sum` or a list operation `append`
