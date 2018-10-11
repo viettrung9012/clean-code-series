@@ -17,7 +17,7 @@ Don't Use a Comment when you can use a Function or a Variable
 - Mumbling (we should clearly explain ourselves in comments instead of confusing the readers)
 - Redundant Comments (if comment is longer than the code it is explaining, it probably shouldn't be there)
 - Misleading Comments
-- Mandated Comments (comments shouldn't be required for every functions and variables)
+- Mandated Comments (comments shouldn't be required for every function and variable)
 - Journal Comments (don't make our code our diary)
 - Noise Comments
 - Position Markers (`///// Actions /////`)

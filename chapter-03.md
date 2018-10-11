@@ -11,13 +11,13 @@ Block of code should be in the same indentation. The indent level of a function 
 #### Problematic Sign: Sections within Functions
 If a function is divided into sections such as declarations, initializations and process, this is an obvious symptom of doing more than one thing. Functions that do one thing cannot be reasonably divided into sections.
 ### One Level of Abstraction per Function
-In order to make sure our functions are doing “one thing,” we need to make sure that the statements within our function are all at the same level of abstraction. Mixing levels of abstraction within a function is always confusing. Readers may not be able to tell whether a particular expression is an essential concept or a detail. Worse, like broken windows, once details are mixed with essential concepts, more and more details tend to accrete within the function.
+In order to make sure our functions are doing “one thing”, we need to make sure that the statements within our function are all at the same level of abstraction. Mixing levels of abstraction within a function is always confusing. Readers may not be able to tell whether a particular expression is an essential concept or a detail. Worse, like broken windows, once details are mixed with essential concepts, more and more details tend to accrete within the function.
 #### Reading Code from Top to Bottom: *The Stepdown Rule*
 We want the code to read like a top-down narrative. We want every function to be followed by those at the next level of abstraction so that we can read the program, descending one level of abstraction at a time as we read down the list of functions.
 ### Switch statements
 It is hard to make small `switch` statement. By their nature, `switch` statements always do N things. Unfortunately we can't always avoid `switch` statements, but we *can* make sure that each `switch` statement is buried in a low-level class and is never repeated.
 ### Use Descriptive Names
-Don’t be afraid to make a name long. A long descriptive name is better than a short enigmatic name. A long descriptive name is better than a long descriptive comment. Modern IDEs like Eclipse or IntelliJ make it trivial to change names, so we should spend time choosing a good names.
+Don’t be afraid to make a name long. A long descriptive name is better than a short enigmatic name. A long descriptive name is better than a long descriptive comment. Modern IDEs like Eclipse or IntelliJ make it trivial to change names, so we should spend time choosing good names.
 ### Function Arguments
 The number of arguments for a function should not be more than two. Three arguments should be avoided where possible. More than three requires very special justification.
 
@@ -60,4 +60,4 @@ Writing software is like any other kind of writing. When you write a paper or an
 
 Writing functions is similar, we write long and complicated functions first. They have lots of indenting and nested loops. They have long argument lists. The names are arbitrary, and there is duplicated code. But we should already have tests to cover the output of that code.
 
-Then we can refine that code, splitting out functions, changing names, eliminating duplication. We shrink the methods and reorder them. We can even break out whole classes, all the while keeping the tests passing.
+Then we can refine that code, splitting out functions, changing names, eliminating duplication. We shrink the methods and reorder them. We can even break out whole classes, while we keep the tests passing.
