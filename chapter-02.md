@@ -10,7 +10,7 @@ As programmers, we give names to everything - variables, functions, classes, etc
 - Use Pronouceable Names
 - Use Searchable Names - avoid single letter name and magic number
 - Avoid Encodings
-  - Hungrarian Notation (name + type e.g. bookObject, authorString)
+  - Hungarian Notation (name + type e.g. bookObject, authorString)
   - Member prefixes (m_private)
   - Interfaces and Implementation (IBook vs BookImpl)
 - Avoid Mental Mapping - don't make reader spend time deducing names
@@ -18,12 +18,12 @@ As programmers, we give names to everything - variables, functions, classes, etc
   - should be noun or noun phrases
 - Method Names
   - should be verb or verb phrases
-  - accessors, mutators, and predicates should be prefixed with `get`, `set` and `is`
-  - use factory/builder method when constructor is overloaded (e.g. use `Book.withTitle("Clean Code")` in stead of `new Book("Clean Code")`. IntelliJ displays the properties' names but Git doesn't)
+  - accessors (methods to get object attributes), mutators (method to change object attributes), and predicates (methods that check certain logic and return boolean values) should be prefixed with `get`, `set` and `is`
+  - use factory/builder method when constructor is overloaded (e.g. use `Book.withTitle("Clean Code")` instead of `new Book("Clean Code")`. IntelliJ displays the properties' names but Git doesn't).
 - Don’t Be Cute (`delete()` instead of `goodBye()`)
 - Pick One Word per Concept - don't mix e.g. `fetch`, `retrieve` and `get` usually mean the same action
 - Don’t Pun - is `add` an arithmetic operation `sum` or a list operation `append`
 - Use Solution Domain Names - add patterns, data structures, and terms that other programmers are familiar with e.g. Message**Builder**, Message**Queue**
-- Use Problem Domain Names - when solution domain is not possible, use names those relate to the problem domain so that the next programmer can ask a domain expert what it means
+- Use Problem Domain Names - when solution domain is not possible, use names that relate to the problem domain so that the next programmer can ask a domain expert what it means
 - Add Meaningful Context - if there are more than one possible meaning for the chosen name in the scope, it is better to add context to name
-- Don’t Add Gratuitous Context - don't prefix for all classes in the same module with the module name or abbreviation e.g. BookAuthor, BookTitle, BookDescription, etc. It is better to organized those into Book package/directory
+- Don’t Add Gratuitous Context - don't prefix for all classes in the same module with the module name or abbreviation e.g. BookAuthor, BookTitle, BookDescription, etc. It is better to organize those into Book package/directory
