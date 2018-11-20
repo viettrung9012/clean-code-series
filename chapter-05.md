@@ -1,5 +1,7 @@
 # Chapter 5 - Formatting
-##Purpose
+
+## Purpose
+
 Code formatting is about communication, and it is professional developer’s first order of business.
 
 The functionality that you create today has a good chance of changing in the next release, but the readability of your code will have a profound effect on all the changes that will ever be made.
