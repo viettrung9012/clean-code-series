@@ -58,7 +58,7 @@ public class BoldWidget extends ParentWidget {
 }
 ```
 
-##Vertical Density
+## Vertical Density
 Lines of code that are tightly related should appear vertically dense
 
 Example:
@@ -94,7 +94,7 @@ public class ReporterConfig {
 }
 ```
 
-##Variable Declarations:
+## Variable Declarations:
 Variables should be declared as close to their usage as possible.
 
 Example: 
@@ -308,7 +308,7 @@ Without indentation, programs would be virtually unreadable by humans:
 public class FitNesseServer implements SocketServer { private FitNesseContext context; public FitNesseServer(FitNesseContext context) { this.context = context; } public void serve(Socket s) { serve(s, 10000); } public void serve(Socket s, long requestTimeout) { try { FitNesseExpediter sender = new FitNesseExpediter(s, context); sender.setRequestParsingTimeLimit(requestTimeout); sender.start(); } catch(Exception e) { e.printStackTrace(); } } }
 ```
 
-##Indented Program:
+## Indented Program:
 ```java
 public class FitNesseServer implements SocketServer {
     private FitNesseContext context;
@@ -333,7 +333,7 @@ public class FitNesseServer implements SocketServer {
 }
 ```
 
-##Breaking Indentation - Dummy Scopes:
+## Breaking Indentation - Dummy Scopes:
 
 Sometimes the body of a while or for statement is a dummy, as shown below. Unless you make that semicolon visible by indenting it on it’s own line, it’s just too hard to see.
 

@@ -1,6 +1,6 @@
 # Chapter 6 - Objects and Data Structures
 
-##Data Abstraction:
+## Data Abstraction:
 
 Hiding implementation is about abstractions! A class does not simply push its variables out through getters and setters. Rather it exposes abstract interfaces that allow its users to manipulate the essence of the data, without having to know its implementation.
 
@@ -29,7 +29,7 @@ public interface Vehicle {
 }
 ```
 
-##Data/Object Anti-Symmetry:
+## Data/Object Anti-Symmetry:
 
 Objects hide their data behind abstractions and expose functions that operate on that data. Data struc- ture expose their data and have no meaningful functions.
 
@@ -98,7 +98,7 @@ The complement is also true:
 
 Procedural code makes it hard to add new data structures because all the functions must change. OO code makes it hard to add new functions because all the classes must change.
 
-##The Law of Demeter:
+## The Law of Demeter:
 
 The Law of Demeter says that a method f of a class C should only call the methods of these:
 - C
