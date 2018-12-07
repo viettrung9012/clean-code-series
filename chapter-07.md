@@ -90,7 +90,7 @@ public class File {
 We thought that checked exceptions were a great idea; and yes, they can yield some benefit. 
 However, they are not necessary for the production of robust software.
 
-Checked exceptions are violating Open/Closed Principle.
+Checked exceptions are **violating Open/Closed Principle**.
 
 If we throw a checked exception from a method in our code and the `catch` is three levels above, 
 we must declare that exception in the signature of each method between our code and the catch.
@@ -101,9 +101,13 @@ Now let's say one of the lowest level functions is modified in such a way that i
 If that exception is checked, then the function signature must add a throws clause. 
 But this means that every function that calls our modified function must also be modified either to catch the new exception or to append the appropriate `throws` clause to its signature.
 The net result is a cascade of changes that work their way from the lowest levels of the software to the highest!
-Encapsulation is broken because all functions in the path of a throw must know about details of that low-level exception.
+**Encapsulation is broken** because all functions in the path of a throw must know about details of that low-level exception.
 
 Checked exceptions can sometimes be useful if we are writing a critical library.
+
+*My opinion:*
+*If we expecting to recover from an exception, we should make it a checked exception.*
+*Others, make it an unchecked exception.*
 
 ## Provide Context with Exceptions
 
@@ -140,7 +144,7 @@ In most exception handling situations, the work that we do is relatively standar
 We have to record an error and proceed.
 
 In this case, because we know that the work that we are doing is roughly the same, regardless of the exception, 
-we can simplify our code considerably by wrapping the API that we are calling and making sure that it returns a common exception type.
+we can simplify our code considerably by **wrapping the API** that we are calling and making sure that it returns a common exception type.
 
 ```java
 /* Example: Catch similar exception with wrapper */
@@ -175,7 +179,7 @@ public class LocalPort {
 }
 ```
 
-Wrapping third-party APIs is a best practice.
+**Wrapping third-party APIs is a best practice.**
 When we wrap a third-party API, we minimize dependencies upon it.
 We can choose to move to a different library in the future without much penalty.
 Wrapping also makes it easier to mock out third-party calls when testing our own code.
@@ -263,7 +267,7 @@ public List<Employee> getEmployees() {
 }
 ```
 
-When returning an empty list, we can eliminate `null` check, minimize the chance of `NullPointerExceptions` and code looks cleaner.
+When **returning an empty list**, we can eliminate `null` check, minimize the chance of `NullPointerExceptions` and code looks cleaner.
 
 ## Don't Pass Null
 
