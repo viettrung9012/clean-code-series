@@ -7,3 +7,4 @@ Clean Code Series
 ## [Chapter 4 - Comments](chapter-04.md)
 ## [Chapter 5 - Formatting](chapter-05.md)
 ## [Chapter 6 - Objects and Data Structures](chapter-06.md)
+## [Chapter 7 - Error Handling](chapter-07.md)
