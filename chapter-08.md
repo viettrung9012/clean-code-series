@@ -164,7 +164,7 @@ The learning tests were precise experiments that helped increase our understandi
 
 When there are new releases of the third-party packages, we run the learning tests to see whether there are behavioral differences.
 
-If the third-party package changes in some way incompatible without tests, we will find out right away.
+**If the third-party package changes in some way incompatible without tests, we will find out right away.**
 
 A clean boundary should be supported by a set of outbound tests that exercise the interface the same way the production does.
 Without these boundary tests to ease the migration, we might be tempted to stay with the old version longer than we should.
@@ -186,7 +186,7 @@ One good thing about writing the interface we wish we had is that it's under our
 We insulted the `CommunicationController` class from the Transmitter API (which was out of our control and undefined).
 By using our own application-specific interface, we kept our `CommunicationController` code clean and expressive.
 Once the Transmitter API was defined, we wrote the `TransmitterAdapter` to bridge the gap.
-The *Adapter* encapsulated the interaction with the API and provides a single place to change when the API evolves.
+**The *Adapter* encapsulated the interaction with the API and provides a single place to change when the API evolves.**
 
 This design also gives us a very convenient seam in the code for testing.
 Using a suitable `FakeTransmitter`, we can test the `CommunicationController` class.
@@ -194,11 +194,11 @@ We can also create boundary tests once we have the `TransmitterAPI` that make su
 
 ## Clean Boundaries
 
-Good software designs accommodate change without huge investments and rework.
+Good software designs **accommodate change without huge investments and rework**.
 When we use code that is out of our control, special care must be taken to protect our investment and make sure future changes is not too costly.
 
 The code at the boundaries needs clear separation and tests that define expectations.
 We should avoid letting too much of our code know about the third-party particulars. 
-It's better to depend on something we can control than on something that we don't control.
+It's better to **depend on something we can control than on something that we don't control**.
 
 This promotes internal consistent usage across the boundary and has fewer maintenance points when the third-party code changes.
