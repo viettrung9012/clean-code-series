@@ -183,7 +183,7 @@ One good thing about writing the interface we wish we had is that it's under our
 
 ![Transmitter Adapter](https://ewegithub.sb.karmalab.net/EWE/clean-code-series/blob/master/images/chapter-08-figure-01.png "Transmitter Adapter")
 
-We insulted the `CommunicationController` class from the Transmitter API (which was out of our control and undefined).
+We insulated the `CommunicationController` class from the Transmitter API (which was out of our control and undefined).
 By using our own application-specific interface, we kept our `CommunicationController` code clean and expressive.
 Once the Transmitter API was defined, we wrote the `TransmitterAdapter` to bridge the gap.
 **The *Adapter* encapsulated the interaction with the API and provides a single place to change when the API evolves.**
