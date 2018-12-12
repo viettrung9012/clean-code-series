@@ -213,6 +213,9 @@ public class PerDiemMealExpenses implements MealExpenses {
 }
 ```
 
+This is called `SPECIAL CASE PATTERN`. We create a class or configure an object so that it handles a special case for us.
+When we do, the client doesn't have to deal with exceptional behavior. That behavior is encapsulated in the special case object.
+
 ## Don't Return Null
 
 ```java
