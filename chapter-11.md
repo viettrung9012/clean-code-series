@@ -26,13 +26,16 @@ However, we now have a hard-coded dependency to `MyServiceImpl` and cannot start
 
 ### Methods to separate Startup and Runtime
 
-#### Separate of Main
+<<<<<<< HEAD
+#### Separation of Main
 
 A first and simple way to separate construction from use is simply to move all aspects of construction to `main`, and to design the rest of the system assuming that all objects have been constructed and wired up appropriately.
 
 The `main` function builds the objects necessary for the system, then passes them to the application, which simply uses them.
 
 This means that the application has no knowledge of `main` or of the construction process. It simply expects that everything has been built properly.
+
+![chapter-11-figure-03.png](images/chapter-11-figure-03.png "chapter-11-figure-03.png")
 
 #### Factories
 
@@ -64,20 +67,6 @@ True DI goes one step further. The class takes no direct steps to resolve its de
 
 The Spring Framework, for instance, do exactly this by using XML or Java configuration files, or using Java annotations.
 
-## Scaling up
-
-Like Cities, Systems grow and evolve. How can we make sure it is correctly built so it can scale without pain?
-
-Should we build a six-lane highway in a small town to anticipate its growth to a big city?
-
-Should we build a software system in anticipation of how big it can grow?
-
-It is a myth that we can get systems “right the first time.” Instead, we should implement only today’s stories, then refactor and expand the system to implement new stories tomorrow. This is the essence of iterative and incremental agility. Test-driven development, refactoring, and the clean code they produce make this work at the code level.
-
-> Software systems are unique compared to physical systems. Their architectures can grow incrementally if we maintain the proper separation of concern.
-
-Be careful of overengineering!
-
 ### Cross-Cutting Concerns
 
 Some old architectures, like EJB2, were not fully separating all the concerns. __Persistence__, for instance, used to be implemented directly in domain objects using specific Database management systems following naming conventions and transaction semantics. Even though the persistence strategy was modular and encapsulated, in practice, you had to spread the same code that implements the persistence strategy across many objects. Therefore, SRP was half implemented and we used to use the term cross-cutting concerns for concerns like these.
@@ -95,7 +84,6 @@ They make developers create huge volume of complex code.
 #### EJBs
 
 In EJBs, You must subclass container types and you must provide many lifecycle methods that are required by the container. Therefore, the business logic is tightly coupled to the EJB application “container”.
-
 
 #### Spring
 
@@ -124,6 +112,20 @@ Each “bean” is like one part of a nested “Russian doll,” with a domain o
 If you can write your application’s domain logic using POJOs, decoupled from any architecture concerns at the code level, then it is possible to truly test drive your architecture. You can evolve it from simple to sophisticated, as needed, by adopting new technologies on demand. *__It is not necessary to do a Big Design Up Front__* (BDUF). In fact, BDUF is even harmful because it inhibits adapting to change, due to the psychological resistance to discarding prior effort and because of the way architecture choices influence subsequent thinking about the design.
 
 > An optimal system architecture consists of modularized domains of concern, each of which is implemented with Plain Old Java (or other) Objects. The different domains are integrated together with minimally invasive Aspects or Aspect-like tools. This architecture can be test-driven, just like the code.
+
+## Scaling up
+
+Like Cities, Systems grow and evolve. How can we make sure it is correctly built so it can scale without pain?
+
+Should we build a six-lane highway in a small town to anticipate its growth to a big city?
+
+Should we build a software system in anticipation of how big it can grow?
+
+It is a myth that we can get systems “right the first time.” Instead, we should implement only today’s stories, then refactor and expand the system to implement new stories tomorrow. This is the essence of iterative and incremental agility. Test-driven development, refactoring, and the clean code they produce make this work at the code level.
+
+> Software systems are unique compared to physical systems. Their architectures can grow incrementally if we maintain the proper separation of concern.
+
+Be careful of overengineering!
 
 ## Be careful of Standards
 
