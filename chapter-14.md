@@ -111,7 +111,7 @@ So I stopped adding features and started refactoring. Having just added the Stri
 - Next, each argument type needed to be parsed in the command-line strings and converted to its true type. 
 - Finally, each argument type needed a getXXX method so that it could be returned to the caller as its true type.
 
-Many different types(Integer, String, Double, Date), all with similar methods—that sounds like a class to me. And so the ArgumentMarshaler concept was born.
+Many different types(Integer, String, Double, Date), all with similar methods, that sounds like a class to me. And so the ArgumentMarshaler concept was born.
 
 ## On Incrementalism
 One of the best ways to ruin a program is to make massive changes to its structure in the name of improvement.
