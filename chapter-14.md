@@ -5,7 +5,7 @@ This chapter is a case study in successive refinement. You will see a module tha
 
 ## Case Introduction
 
-Most of us have had to parse command-line arguments from time to time.Args is very simple to use. You simply construct the Args class with the input arguments and a format string, and then query the Args instance for the values of the arguments
+Most of us have had to parse command-line arguments from time to time. Args is very simple to use. You simply construct the Args class with the input arguments and a format string, and then query the Args instance for the values of the arguments
 
 ```java
 public static void main(String[] args) { 
