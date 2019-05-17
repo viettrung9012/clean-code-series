@@ -5,7 +5,7 @@ This chapter is a case study in successive refinement. You will see a module tha
 
 ## Case Introduction
 
-Most of us have had to parse command-line arguments from time to time.Args is very simple to use. You simply construct the Args class with the input argu- ments and a format string, and then query the Args instance for the values of the argu- ments
+Most of us have had to parse command-line arguments from time to time.Args is very simple to use. You simply construct the Args class with the input arguments and a format string, and then query the Args instance for the values of the arguments
 
 ```java
 public static void main(String[] args) { 
@@ -21,6 +21,49 @@ public static void main(String[] args) {
 ```
 
 ## Args Implementation
+
+```java
+public class Args {
+    private Map<Character, ArgumentMarshaler> marshalers;
+    private Set<Character> argsFound;
+    private ListIterator<String> currentArgument;
+    
+    public Args(String schema, String[] args) throws ArgsException { 
+        marshalers = new HashMap<Character, ArgumentMarshaler>(); 
+        argsFound = new HashSet<Character>();
+        parseSchema(schema);
+        parseArgumentStrings(Arrays.asList(args)); 
+    }
+    
+    private void parseSchema(String schema) throws ArgsException { 
+        for (String element : schema.split(",")){
+            if (element.length() > 0) {
+                parseSchemaElement(element.trim());
+            }
+        }
+    }
+    
+    private void parseSchemaElement(String element) throws ArgsException { 
+        char elementId = element.charAt(0);
+        String elementTail = element.substring(1); validateSchemaElementId(elementId);
+        if (elementTail.length() == 0)
+            marshalers.put(elementId, new BooleanArgumentMarshaler());
+        else if (elementTail.equals("*")) 
+            marshalers.put(elementId, new StringArgumentMarshaler());
+        else if (elementTail.equals("#"))
+            marshalers.put(elementId, new IntegerArgumentMarshaler());
+        else if (elementTail.equals("##")) 
+            marshalers.put(elementId, new DoubleArgumentMarshaler());
+        else if (elementTail.equals("[*]"))
+            marshalers.put(elementId, new StringArrayArgumentMarshaler());
+        else
+            throw new ArgsException(INVALID_ARGUMENT_FORMAT, elementId, elementTail);
+        }
+    }
+    ....
+}
+```
+
 
 ```java
 public class IntegerArgumentMarshaler implements ArgumentMarshaler { 
@@ -68,7 +111,7 @@ So I stopped adding features and started refactoring. Having just added the Stri
 - Next, each argument type needed to be parsed in the command-line strings and converted to its true type. 
 - Finally, each argument type needed a getXXX method so that it could be returned to the caller as its true type.
 
-Many different types, all with similar methods—that sounds like a class to me. And so the ArgumentMarshaler concept was born.
+Many different types(Integer, String, Double, Date), all with similar methods—that sounds like a class to me. And so the ArgumentMarshaler concept was born.
 
 ## On Incrementalism
 One of the best ways to ruin a program is to make massive changes to its structure in the name of improvement.
