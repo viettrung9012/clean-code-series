@@ -49,10 +49,15 @@ public class IntegerArgumentMarshaler implements ArgumentMarshaler {
 ```
 
 ## How Did I Do This?
-Let me set your mind at rest. I did not simply write this program from beginning to end in its current form. More importantly, I am not expecting you to be able to write clean and elegant programs in one pass. If we have learned anything over the last couple of decades, it is that programming is a craft more than it is a science. To write clean code, you must first write dirty code and then clean it.
+Let me set your mind at rest. 
+
+I did not simply write this program from beginning to end in its current form. More importantly, I am not expecting you to be able to write clean and elegant programs in one pass. 
+
+Programming is a craft more than it is a science. To write clean code, you must first write dirty code and then clean it.
 
 ## Args: The Rough Draft
 It “works.” And it’s messy.
+
 Notice that the latter mess has only two more argument types than this: String and integer. The addition of just two more argument types had a massively negative impact on the code. 
 
 ## So I Stopped
@@ -67,16 +72,18 @@ Many different types, all with similar methods—that sounds like a class to me.
 
 ## On Incrementalism
 One of the best ways to ruin a program is to make massive changes to its structure in the name of improvement.
+
 To avoid this, I use the discipline of Test-Driven Development (TDD).
 
 ## String Arguments
-now let’s look at the whole picture again.
+Now let’s look at the whole picture again.
 
 Much of good software design is simply about partitioning—creating appropriate places to put different kinds of code. This separation of concerns makes the code much simpler to understand and maintain.
 
 
 ## Conclusion
 **It is not enough for code to work.**
+
 **Keep your code as clean and simple as it can be. Never let the rot get started.**
 
 
