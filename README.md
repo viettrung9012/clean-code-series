@@ -16,3 +16,4 @@ Clean Code Series
 ## [Chapter 13 - Concurrency](chapter-13.md)
 ## [Chapter 14 - Successive Refinement](chapter-14.md)
 ## [Chapter 15 - Junit Internals](chapter-15.md)
+## [Chapter 16 - Refactoring SerialDate](chapter-16.md)
