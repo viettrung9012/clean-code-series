@@ -44,7 +44,7 @@ i++; // increment i
 ```
 /**
 * @param sellRequest
-* @return
+* @return SellResponse
 * @throws ManagedComponentException */
 public SellResponse beginSellItem(SellRequest sellRequest) throws ManagedComponentException
 ```
@@ -57,12 +57,18 @@ Choose your words carefully. Use correct grammar and punctuation. Don’t ramble
 
 **C5: Commented-Out Code**
 
-Commented-out code is an abomination. When you see commented-out code, delete it!
+When you see commented-out code, delete it!
 
 ## Environment
 
 **E1: Build Requires More Than One Step**
 
+Building a project should be a single trivial operation. 
+
+- You should not have to check many little pieces out from source code control.
+- You should not need a sequence of arcane commands or context dependent scripts in order to build the individual elements.
+- You should not have to search near and far for all the various little extra JARs, XML files, and other artifacts that the system requires.
+ 
 You should be able to check out the system with one simple command and then issue one other simple command to build it.
 
 ****Example****
@@ -713,10 +719,37 @@ public class HourlyEmployee extends Employee {
 
 Now that enums have been added to the language (Java 5), use them!
 
-Don’t keep using the old trick of public static final ints.The meaning of ints can get lost. The meaning of enums cannot, because they belong to an enumeration that is named.
+Don’t keep using the old trick of `public static final` ints.The meaning of ints can get lost. The meaning of enums cannot, because they belong to an enumeration that is named.
 
 What’s more, study the syntax for enums carefully. They can have methods and fields. This makes them very powerful tools that allow much more expression and flexibility than ints.
 
+```java
+public enum HourlyPayGrade {
+    APPRENTICE {
+        public double rate() { 
+            return 1.0; 
+        }
+    },
+    LEUTENANT_JOURNEYMAN {
+        public double rate() { 
+            return 1.2; 
+        }
+    },
+    JOURNEYMAN {
+        public double rate() {
+            return 1.5;
+        }
+    },
+    MASTER {
+        public double rate() { 
+            return 1.5;
+        }
+    };
+    
+    public abstract double rate();
+
+}
+```
 
 ## Names
 
@@ -838,10 +871,11 @@ The length of a name should be related to the length of the scope. You can use v
 
 Variable names like `i` and `j` are just fine if their scope is five lines long. Consider this snippet from the old standard “Bowling Game”:
 ```java
-private void rollMany(int n, int pins) {
+private void rollMany(int n, int pins)
+ {
     for (int i=0; i<n; i++)
      g.roll(pins);
-}
+ }
 ```
 This is perfectly clear and would be obfuscated if the variable `i` were replaced with something annoying like `rollCount`. On the other hand, variables and functions with short names lose their meaning over long distances.
 
@@ -851,7 +885,7 @@ So the longer the scope of the name, the longer and more precise the name should
 
 Names should not be encoded with type or scope information. Prefixes such as `m_`or `f` are useless in today’s environments. Also project and/or subsystem encodings such as `vis_` (for visual imaging system) are distracting and redundant.
  
-Again, today’s environments provide all that information without having to mangle the names. Keep your names free of Hungarian pollution.
+Again, today’s environments provide all that information without having to mangle the names.
 
 **N7: Names Should Describe Side-Effects**
 
@@ -903,7 +937,7 @@ Sometimes you can diagnose a problem by finding patterns in the way the test cas
  
 Complete test cases, ordered in a reasonable way, expose patterns.
 
-As a simple example, suppose you noticed that all tests with an input larger than five characters failed? Or what if any test that passed a negative number into the second argument of a function failed? Sometimes just seeing the pattern of red and green on the test report is enough to spark the “Aha!” that leads to the solution.
+As a simple example, suppose you noticed that all tests with an input larger than five characters failed? Or what if any test that passed a negative number into the second argument of a function failed? Sometimes just seeing the pattern of red and green on the test report is enough to figure out a solution.
 
 **T8:  Test Coverage Patterns Can Be Revealing**
 
